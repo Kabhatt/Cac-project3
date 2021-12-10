@@ -1,0 +1,5 @@
+2021-12-07 08:16:01,519,logger name,DEBUG,a debug message
+2021-12-07 08:16:01,521,logger name,INFO,an info message
+2021-12-07 08:16:01,526,logger name,WARNING,A Checkout this warning.
+2021-12-07 08:16:01,529,logger name,ERROR,An error writen here.
+2021-12-07 08:16:01,530,logger name,CRITICAL,Something very critical happened.
