@@ -16,3 +16,7 @@ setup.py is a config file for pytest
  
 
 ![img_1.png](img_1.png)
+
+
+Beautiful Table: 
+![img_2.png](img_2.png)
