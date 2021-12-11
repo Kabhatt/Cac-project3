@@ -31,5 +31,3 @@ def flash_test():
     return render_template("base.html")
 
 
-if __name__ == '__main__':
-    app.run()
