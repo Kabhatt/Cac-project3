@@ -1,0 +1,77 @@
+body{
+        background-color: #1e1e1e;
+        background-position: 50% 50%;
+        background-repeat: repeat;
+    }
+    h3{
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+    }
+    h4{
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+    }
+    h5{
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+    }
+    #logo{
+        background-color: black;
+        background-position: 50% 50%;
+        border-radius: 85px;
+        margin: auto;
+        display: inline-block;
+    }
+    #primarylinks{
+        background-color: black;
+        color: white;
+        position: absolute;
+        top: 40px;
+        right: 50px;
+    }
+    #Main{
+        background-color: black;
+        color: bisque;
+        float: inside;
+
+    }
+
+    .image img {
+        height:230px;
+        width: 220px;
+        position: relative;
+        float: right;
+        margin-left: auto;
+    }
+    #Fter{
+        position: relative;
+        background-color: black;
+        display: inline-block;
+        float: right;
+        bottom: 10px;
+    }
+    #validator{
+        position: relative;
+        float: left;
+        bottom: 10px;
+        background-color: black;
+    }
+    #wrapper {
+        width: auto;
+        margin: auto;
+    }

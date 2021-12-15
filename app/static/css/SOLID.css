@@ -1,0 +1,75 @@
+ ul li { list-style: none; display: inline; }
+    ul li:after { content: " \00b7"; }
+    ul li:last-child:after { content: none; }
+    body{
+        background-color: #1e1e1e;
+        background-position: 50% 50%;
+        background-repeat: repeat;
+    }
+    h2{
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+    }
+    h3{
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+    }
+    h4{
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+    }
+    h5{
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+    }
+    #primarybody {
+        background-color: black;
+        color: white;
+    }
+    #primarylinks{
+        background-color: black;
+        color: white;
+        position: absolute;
+        top: 40px;
+        right: 10px;
+    }
+    #Main{
+        background-color: black;
+        color: bisque;
+        float: inside;
+
+    }
+    #Fter{
+        position: relative;
+        background-color: black;
+        display: inline-block;
+        float: right;
+        bottom: 10px;
+    }
+    #validator{
+        position: relative;
+        background-color: black;
+        display: inline-block;
+        float: left;
+        bottom: 10px;
+    }

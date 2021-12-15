@@ -2,6 +2,7 @@
 from calc.history.calculations import Calculations
 
 
+
 # the calculator class just contains the methods to calculate
 class Calculator:
     """ This is the Calculator class"""
@@ -31,3 +32,18 @@ class Calculator:
         """ multiplication number from result"""
         Calculations.add_multiplication_calculation_to_history(tuple_values)
         return True
+
+    @staticmethod
+    def Division(tuple_values: tuple):
+        """ multiplication number from result"""
+        Calculations.add_division_calculation_to_history(tuple_values)
+        return True
+
+    @staticmethod
+    def get_history():
+        """This function gets the history of the Calculator"""
+        return Calculator.history
+
+    @staticmethod
+    def get_history_CSV():
+        return

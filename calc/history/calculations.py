@@ -1,7 +1,10 @@
 """Calculation history Class"""
+import pandas as pd
+from csvmanager.write import Write
 from calc.calculations.addition import Addition
 from calc.calculations.subtraction import Subtraction
 from calc.calculations.multiplication import Multiplication
+from calc.calculations.division import Division
 
 
 class Calculations:
@@ -64,9 +67,24 @@ class Calculations:
         """Add a multiplication object to history using factory method create"""
         Calculations.add_calculation(Multiplication.create(values))
         return True
-
     @staticmethod
     def add_division_calculation(values):
         """Add a multiplication object to history using factory method create"""
         Calculations.add_calculation(Division.create(values))
         return True
+
+    @staticmethod
+    def read_history_csv():
+        """Reads the history from CSV files"""
+
+    @staticmethod
+    def write_history_csv():
+        """Reads the history from CSV files"""
+
+    @staticmethod
+    def dataframe(value1, value2, result, operation):
+        """Reads the history from CSV files"""
+        df_dataframe = pd.DataFrame(columns=["value_1","value_2","result","operation"])
+        df_dataframe = df_dataframe.append({"value_1": value1, "value_2": value2, "result": result,"operation": operation,},index_ignore=True)
+        return Write.DataFrameToCSVFile
+

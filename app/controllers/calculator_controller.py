@@ -1,6 +1,7 @@
 from app.controllers.controller import ControllerBase
 from calc.calculator import Calculator
 from flask import render_template, request, flash
+from csvmanager import read
 
 
 class CalculatorController(ControllerBase):
@@ -9,9 +10,9 @@ class CalculatorController(ControllerBase):
         if request.form['value1'] == '' or request.form['value2'] == '':
             error = 'You must enter a value for value 1 and or value 2'
         else:
+            Calculator.ge
             flash('You successfully calculated')
             flash('You are awesome')
-
             # get the values out of the form
             value1 = request.form['value1']
             value2 = request.form['value2']

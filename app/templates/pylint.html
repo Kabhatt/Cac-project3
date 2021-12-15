@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='pylint.css')}}"/>
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+     .index {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .para {
+        font-size: 50px;
+    }
+
+    </style>
+{% endblock %}
+{% block content %}
+    <h1 style="margin-top: 20px; margin-left: 20px"><strong>Pylint</strong></h1>
+
+    <div id="Main">
+        <h1> Understanding AAA testing </h1>
+        <h2>Unit and Pytest</h2>
+        <p class="bold">
+        <p>     While learning python, it's important to understand the use of pylint tool. This is a tool that allows programmer to check their python
+            code for errors. There are other types of tests done in python or coding in general, such as unit test or
+            end-to-end testing, but pylint tool is easier and shorter to read, along with re-usability and no connections to
+            sites like travis, that are needed. It is often used to enforce a coding standard and looks for deeper issues
+            within the code. How-ever it is important to note, that while pylint is a great tool for checking codes and
+            errors, it is still useful to gp back and review. So how does pylint work with AAA testing? </p>
+        <div class="image1">
+            <img src="{{ url_for('static', filename='images/diagramAAA.jpeg') }}">
+        </div>
+        <p> In the diagram above you can see the basics of how AAA testing works. The first part is to arrange the code,
+            set up the code to create object and instances, and creating data or inputs. The second portion is to execute the code by calling the methods
+            and set the properties. The last part is to test the code by checking the results. In the next example, we will see real life implementation of
+            AAA testing, using a calculator that we created in python with testing. So, now that we understand how AAA testing works like focus on testing, both unit and pylint. To understand how linting works, lets look at our calculator example. In the picture below I added my entire
+            simple calculator code is shown. For the entire repository, the link will be added to the footer below. </p>
+        <img src="{{ url_for('static', filename='images/calculatorfull.png') }}">
+        <h2> Unit and Pytest Testing with Our Calculator Codes</h2>
+        <p>
+            In the example above, we have the format of Arrange, Act and Assert. In this format the arange is where we set
+            up the objects that will be tested. Now lets take a look at a snippet of the calculator, particularly the addition method, so we can analyze how we arranged the AAA method.
+        </p>
+        <img src="{{ url_for('static', filename='images/AAA.png') }}">
+        <p>This includes the addition function of the calculator, we then had an act
+            which calls the addition method, and we assert that the sum is 4, which is the sum. Now to test the code for bugs or problems we would go to the
+            terminal and type "pytest". Once we hit enter, the test would run. If there are no issues, the pytest should come out as 100%.</p>
+        <div class="image4">
+            <img src="{{ url_for('static', filename='pytest.png') }}">
+        </div>
+        <p>
+            The above pytest was 100%, meaning that there are no problems. The arrangement of the code is correct, the class, the methods, and the attributes are all correct.
+            We also had the correct action, which was importing from the calculator and testing addition, subtraction, multiplication and division, and our assertions about the outcomes
+            are also correct. However, there are times when the pytest does not pass. Usually the error would look like this:
+        </p>
+        <div id="image5">
+              <img src="{{ url_for('static', filename='images/failedpy.png') }}">
+        </div>
+        So what would cause this error, well, lets look at the code, particularly the snippet at line 13. It's important to remember that we imported methods from class calculator in to the test file. The
+        calculator methods however come from individual directories of subtraction, addition, multiplication and division. So the error in the picture shows that there is an issue with the division class.
+        So let's take a look at the code:
+        <div id="image6">
+              <img src="{{ url_for('static', filename='images/codefail.png') }}">
+        </div>
+        <p> So here, for starters the problem is in our arrangement. The first portion of the AAA is arrangement, so we should have a class with objets and methods. In this case we do have that. However lets us check the
+            structure, is the structure correct? Well we have class up top (which is not seen on this picture, but for my complete calculator I will link my repository below), we also have the def function. Now the arrangement part
+            underneath the definition function we arranged by instantiating the results that should show up for testing. Well here is our problem, the error states that "AttributeError: 'tuple' object has no attribute 'values'", so we need to go back and check where our
+            division class is getting it's functions, which is the calculation class. In the Calculation class:
+        </p>
+           <img src="{{ url_for('static', filename='images/calcissues.png') }}">
+        <p> Here if you noticed, we have an issue with the arrangement portion of the class. We have two methods a class method and a static method.The class method, like stated in the python page can effect the class,while the static method is attached to the class, but it's not going to modify the class.
+            In this particular case we do not need a class method, because it changed the entire class. So let's take away that method and see if we get the same issue. In doing that, although we still have errors in our calculator using pylint, the actual error of that line is gone. So we know the issue was in part due to the arrangement of our code in the calculation file.
+            Using the same process of finding the errors like before we will go back and see each and every error that comes up and check the codes and their origins. If all is done correctly we should get a 100% as our pylint test like shown before. </p>
+        <h3> CSV Files and External Testing</h3>
+        <p>In this portion we will talk about using the Unit testing with external csv files. Remember the csv files are the alternate Excel files, these files are often used for coding because they are plain text and can be imported to another spreadsheet or data storage.
+            Since pycharm and python in general works very well with these kinds of files. In one of our calculator repositories, called part_4, we used this method. Hoever before we can even test the codes for it or even import the csv files in to the project, we need to do a few things. The first thing we must do is update our requirement text.
+            The requirement text, is what stores the libraries, packages, and modules, that will be used for developing the program. The requirement text we need to have in this part must have the requirement libraries for pytest. It is the same as our previous requirment text shown in the python tab. We also need to do pip install pandas. In my version of python, the command for intsalling pandas is using pip3.
+            So to install the pandas library, I used <code style="background-color: gray; font-size: 18px; font-style: initial">pip3 install pandas</code>. The unit test is run on docker, so we cannot install the pandas file to the normal terminal so we must also update the Dockerfile to have the libraries that can be installed. It is important to note that sometimes we need to update the wheel, which is why many times pip install doesn't work.
+            That was the case in  my own program, so I added the last code as an option in hopes that it works, this is the optional code  <code style="background-color: gray; font-size: 18px; font-style: initial">RUN pip install --upgrade pip setuptools wheel</code>. The over all docker file should look like this for pandas to be installed.</p>
+            <img src="{{ url_for('static', filename='images/dockerupdate.png') }}">
+        <p> Once the docker text is updated and the files are installed. We import pandas using the code <code style="background-color: gray; font-size: 18px; font-style: initial">import pandas as pd</code> as the very first line on top. This will import pandas in to the file, and we can move on. The next thing we do is import a csv file. We created an addition file on Excel, and saved it as csv. Once we saved the file on our computer, we copy and past the directory of the file in the utilities' folder we created in the project directory. Once we added the csv files, we also add excel files,for comparison.
+            Our excel files should throw us an error but our csv files will come up as lists on our program, and once it does,  we run the unit test just like we have done so before.</p>
+         <img src="{{ url_for('static', filename='images/csvfile.png') }}">
+        </p>
+        <p>Hopefully this tutorial on unit and pytesting was helpful. Again it is important to know that unit testing and the entirity of the reult can be found on travis.yml, while pytest is more efficient and fast, the unit test is more thorough. As stated the link to the repo is on the bottom right of this page, if you would like to read and understand the codes, just click on the link for the repo. </p>
+
+    </div>
+    <footer>
+    <div id="Fter" style="color: lightcyan">
+        CopyRight Kashish Bhatt IS601
+        <a style="color: darksalmon; text-decoration: underline " href="https://github.com/Kabhatt/calc2/tree/part4">Click here for Calculator Repo.</a>
+    </div>
+    <div id="validator">
+        <a href="https://validator.w3.org" style="color: lightcyan">W3C validator</a>
+    </div>
+    </footer>
+</div>
+</body>
+</html>
