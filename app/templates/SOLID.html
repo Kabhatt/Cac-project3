@@ -40,8 +40,8 @@
 <p>Single Responsibility Principle means that every module, class and function needs to be functional for a single part of the program's functionality. This means that
 classes, modules, or functions mist have only one job. So for example in our calculator we have multiple classes, like division. subtraction, addition, or multiplication; but each of these classes
 have one single function. No function overlaps another function. </p>
-        <p> <img src="{{ url_for('static', filename='images/Add_p4.png') }}">
-        <p> <img src="{{ url_for('static', filename='images/subtraction_part4.png') }}">
+        <p> <img style="height: 400px" src="{{ url_for('static', filename='images/Add_p4.png') }}">
+        <p> <img style="height: 400px" src="{{ url_for('static', filename='images/subtraction_part4.png') }}">
     <p> Often times we see programs where a piece of code that does multiple things like it loads data, modifies it, plots them,
     and then returns the result. So a great way to write the code is to split the functions in to smaller or atomic functions. Like our calculator class. With this method, we only need one reason to change each function that is connected with the calculator class.</p>
    <img src="{{ url_for('static', filename='images/calculatorfull.png') }}">
@@ -51,9 +51,8 @@ then we can locate the code's error using the smaller sections of our code. This
     <h3>Open-Closed Principle</h3>
 <p> Open-Closed Principle is the idea that the codes that are already written should not be modified because new functions are added in. This in no way means that we cannot or should not change our codes when we make mistakes or need to modify them, but
 if the sole cause of modification is based on us adding new functions then it is not needed or required. One of the best things about our calculator was the fact that when we added new functions old codes were not needed to be changed. For example, our simple calculator with the calculator test lacked the division function. So instead of changing all the codes that were previousaly there, we just added a new function and modified the test class to include the new functions.</p>
-    <img src="{{ url_for('static', filename='images/Simplecalc.png') }}">
-    <div style="display:inline;width:5px;"></div>
-      <img src="{{ url_for('static', filename='images/simplecalctest.png') }}">
+    <img style="height: 500px" src="{{ url_for('static', filename='images/Simplecalc.png') }}">
+      <img style="height: 500px;" src="{{ url_for('static', filename='images/simplecalctest.png') }}">
 <p> As you can see in our above example, we did not modify any codes that were previously written, we simply added the division function and then divide by zero error, in both test and the actual calculator.</p>
     <h4>Liskov Substitution Principle </h4>
 <p> In this portion of the principles, the main idea is that any classes that are derived, they should be substitutable for their bases classes.Simply put, if a subclass redifined a function in the parent class, then the client or user should not notice any changes or behaviors, and it's substitute for the base class. So if you are using a function and someone else is working on the project, and they
@@ -68,15 +67,7 @@ sense, interfaces that are client specific are better than those with one genera
     The entire program might lose its compatibility with older files. So a great way to solve this problem is using abstraction that takes this information and passes this over. The problem in python is that there are no abstraction principle, but we can always overcome this problem using ABC, or abstract base class, or type hints, which allow us to specify parameter types and return parameters. So in our Calculator we created an abstract class. This abstract class So this allows the calculator to inherit only the method's calculation class has. </p>
       <img src="{{ url_for('static', filename='images/abstract.png') }}">
         <p> So this basically helps us seperate components. It helps reduce coupling in our codes, and allows us to have a code that is clean in result along with it being extremely easy to change. </p>
+     <a style="color: #00dd00; text-decoration: underline; float: right" href="https://github.com/Kabhatt/calc2/tree/part_4">Click here for Calculator Repo.</a>
     </div>
-        <footer>
-            <div id="Fter" style="color: lightcyan">
-                CopyRight Kashish Bhatt IS601
-                <a style="color: darksalmon; text-decoration: underline " href="https://github.com/Kabhatt/calc2/tree/part_4">Click here for Calculator Repo.</a>
-            </div>
-            <div id="validator">
-                <a href="https://validator.w3.org" style="color: lightcyan">W3C validator</a>
-            </div>
-        </footer>
 
 {% endblock %}

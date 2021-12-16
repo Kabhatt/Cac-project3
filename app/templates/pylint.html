@@ -19,11 +19,8 @@
     </style>
 {% endblock %}
 {% block content %}
-    <h1 style="margin-top: 20px; margin-left: 20px"><strong>Pylint</strong></h1>
-
-    <div id="Main">
-        <h1> Understanding AAA testing </h1>
-        <h2>Unit and Pytest</h2>
+    <h1 style="margin-top: 20px; margin-left: 10px"><strong>Understanding AAA testing</strong></h1>
+        <h1 style="position: center">Unit and Pytest</h1>
         <p class="bold">
         <p>     While learning python, it's important to understand the use of pylint tool. This is a tool that allows programmer to check their python
             code for errors. There are other types of tests done in python or coding in general, such as unit test or
@@ -32,7 +29,7 @@
             within the code. How-ever it is important to note, that while pylint is a great tool for checking codes and
             errors, it is still useful to gp back and review. So how does pylint work with AAA testing? </p>
         <div class="image1">
-            <img src="{{ url_for('static', filename='images/diagramAAA.jpeg') }}">
+            <img style="width:30%; height: auto;" src="{{ url_for('static', filename='images/diagramAAA.jpeg') }}">
         </div>
         <p> In the diagram above you can see the basics of how AAA testing works. The first part is to arrange the code,
             set up the code to create object and instances, and creating data or inputs. The second portion is to execute the code by calling the methods
@@ -45,7 +42,7 @@
             In the example above, we have the format of Arrange, Act and Assert. In this format the arange is where we set
             up the objects that will be tested. Now lets take a look at a snippet of the calculator, particularly the addition method, so we can analyze how we arranged the AAA method.
         </p>
-        <img src="{{ url_for('static', filename='images/AAA.png') }}">
+        <img style="height: 10%;" src="{{ url_for('static', filename='images/AAA.png') }}">
         <p>This includes the addition function of the calculator, we then had an act
             which calls the addition method, and we assert that the sum is 4, which is the sum. Now to test the code for bugs or problems we would go to the
             terminal and type "pytest". Once we hit enter, the test would run. If there are no issues, the pytest should come out as 100%.</p>
@@ -71,7 +68,7 @@
             underneath the definition function we arranged by instantiating the results that should show up for testing. Well here is our problem, the error states that "AttributeError: 'tuple' object has no attribute 'values'", so we need to go back and check where our
             division class is getting it's functions, which is the calculation class. In the Calculation class:
         </p>
-           <img src="{{ url_for('static', filename='images/calcissues.png') }}">
+           <img src="{{ url_for('static', filename='images/failedpy.png') }}" alt="pylint">
         <p> Here if you noticed, we have an issue with the arrangement portion of the class. We have two methods a class method and a static method.The class method, like stated in the python page can effect the class,while the static method is attached to the class, but it's not going to modify the class.
             In this particular case we do not need a class method, because it changed the entire class. So let's take away that method and see if we get the same issue. In doing that, although we still have errors in our calculator using pylint, the actual error of that line is gone. So we know the issue was in part due to the arrangement of our code in the calculation file.
             Using the same process of finding the errors like before we will go back and see each and every error that comes up and check the codes and their origins. If all is done correctly we should get a 100% as our pylint test like shown before. </p>
@@ -88,15 +85,6 @@
         </p>
         <p>Hopefully this tutorial on unit and pytesting was helpful. Again it is important to know that unit testing and the entirity of the reult can be found on travis.yml, while pytest is more efficient and fast, the unit test is more thorough. As stated the link to the repo is on the bottom right of this page, if you would like to read and understand the codes, just click on the link for the repo. </p>
 
+     <a style="color: #00dd00; text-decoration: underline; float: right" href="https://github.com/Kabhatt/calc2/tree/part_4">Click here for Calculator Repo.</a>
     </div>
-    <footer>
-    <div id="Fter" style="color: lightcyan">
-        CopyRight Kashish Bhatt IS601
-        <a style="color: darksalmon; text-decoration: underline " href="https://github.com/Kabhatt/calc2/tree/part4">Click here for Calculator Repo.</a>
-    </div>
-    <div id="validator">
-        <a href="https://validator.w3.org" style="color: lightcyan">W3C validator</a>
-    </div>
-    </footer>
-</div>
 {% endblock %}
