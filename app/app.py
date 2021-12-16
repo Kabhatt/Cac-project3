@@ -30,24 +30,20 @@ def calculator_post():
 
 
 @app.route("/OOP/", methods=['GET'])
-def calculator_get():
+def OOP():
     return OOPControler.get()
 
 
-@app.route("/Python/", methods=['GET'])
-def calculator_get():
+@app.route("/python/", methods=['GET'])
+def python():
     return PythonController.get()
 
 
 @app.route("/pylint/", methods=['GET'])
-def calculator_get():
+def pylint():
     return PylintController.get()
 
-@app.route("/SOLID/", methods=['GET'])
-def calculator_get():
-    return SOLIDController.get()
 
-@app.route("/")
-def flash_test():
-    flash("This is a flash test. Welcome to the Calculator!")
-    return render_template("base.html")
+@app.route("/SOLID/", methods=['GET'])
+def SOLID():
+    return SOLIDController.get()

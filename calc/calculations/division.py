@@ -1,14 +1,16 @@
-"""This is the division calculation"""
+"""Division Class"""
 from calc.calculations.calculation import Calculation
 
 class Division(Calculation):
-    """This is the Division class which gets the result from the parent Calculation class"""
+    """Division calculation object"""
     def get_result(self):
-        """Gets Results"""
-        division_values= self.values[0]
+        """get the division results"""
         try:
-            for i, value in (division_values):
-                if i==0:
-                    return division_values/value
+            for index, value in enumerate(self.values):
+                if index == 0:
+                    division_value = value
+                else:
+                    division_value = division_value / value
+            return round(division_value, 5)
         except ZeroDivisionError:
-                    return "ZERO DIVISION ERROR CANNOT DIVIDE!"
+            return 'ZeroDivisionError'

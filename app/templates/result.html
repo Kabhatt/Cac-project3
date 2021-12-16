@@ -8,36 +8,64 @@
     </style>
 {% endblock %}
 {% block content %}
-
-    <h1>Calculation Result</h1>
-     {% if error %}
-        <div class="alert alert-danger error" role="alert">
-            {{ error }}
-        </div>
-    else:
-            <div class="alert alert-Well Done" role="alert">
+<div class="container-res">
+    <div class="row">
+        <div class="col">
+            <h1>Result</h1>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-success" role="alert">
                 {{ message }}
             </div>
-    {% endif %}
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
 
-    <table id="data" class="table table-striped">
-    <thead>
-      <tr>
-          <th>Value 1</th>
-          <th>Value 2</th>
-          <th>Operation</th>
-          <th>Result</th>
-      </tr>
-        <tr class="table">
-          <td>{{ value1 }}</td>
-          <td>{{ value2}}</td>
-          <td>{{ operation }}</td>
-          <td>{{ result }}</td>
-        </tr>
-  </table>
-    <!--    <strong>Value 1: </strong> {{ value1 }} <br>-->
-    <!--    <strong>Value 2: </strong> {{ value2 }} <br>-->
-    <!--    <strong>Operation: </strong> {{ operation }} <br>-->
-    <!--    <strong>Result: </strong> {{ result }}-->
+            <div class="container">
+                <table class="table table-striped">
+                    <thead>
+                    <tr class="">
+                        {% for col in titles %}
+                        <th scope="col">{{col}}</th>
+                        {% endfor %}
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for row in row_data %}
+                    <tr>
+                        {% for col, row_ in zip(titles, row) %}
+                        <th scope="row">{{row_}}</th>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+
+                </table>
+
+
+<!--                <table class="table table-hover table-bordered  table-striped">-->
+<!--                    <tr class="table-primary">-->
+<!--                        <th>Value 1</th>-->
+<!--                        <th>Value 2</th>-->
+<!--                        <th>Operation</th>-->
+<!--                        <th>Result</th>-->
+<!--                    </tr>-->
+<!--                    <tr class="table-info">-->
+<!--                        <td>{{ value1 }}</td>-->
+<!--                        <td>{{ value2 }}</td>-->
+<!--                        <td>{{ operation }}</td>-->
+<!--                        <td colspan="2">{{ result }}</td>-->
+<!--                    </tr>-->
+<!--                </table>-->
+
+            </div>
+            <!--            <strong>Value 1: </strong> {{ value1 }} <br>-->
+            <!--            <strong>Value 2: </strong> {{ value2 }} <br>-->
+            <!--            <strong>Operation: </strong> {{ operation }} <br>-->
+            <!--            <strong>Result: </strong> {{ result }}-->
+        </div>
+    </div>
+</div>
 
 {% endblock %}

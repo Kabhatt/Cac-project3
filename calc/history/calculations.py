@@ -1,17 +1,36 @@
 """Calculation history Class"""
-import pandas as pd
-from csvmanager.write import Write
 from calc.calculations.addition import Addition
 from calc.calculations.subtraction import Subtraction
 from calc.calculations.multiplication import Multiplication
 from calc.calculations.division import Division
+import pandas as pd
+from csvmanager.write import Write
 
 
 class Calculations:
     """Calculations class manages the history of calculations"""
     history = []
 
-    # pylint: disable=too-few-public-methods
+    @staticmethod
+    def readHistoryFromCSV():
+        """Read the history from csv and put it into the history """
+
+    @staticmethod
+    def writeHistoryToCSV():
+        """Write the history to csv file"""
+
+    # # pylint: disable=too-few-public-methods
+    @staticmethod
+    def create_dataframe_write(value1, value2, result, operation):
+        """Puts values to history"""
+        df_write = pd.DataFrame(columns=['value_1', 'value_2', 'result', 'operation performed'])
+        df_write = df_write.append({'value_1': value1,
+                                    'value_2': value2,
+                                    'result': result,
+                                    'operation': operation},
+                                   ignore_index=True)
+        return Write.DataFrameToCSVFile(df_write)
+
     @staticmethod
     def clear_history():
         """clear the history of calculations"""
@@ -67,24 +86,8 @@ class Calculations:
         """Add a multiplication object to history using factory method create"""
         Calculations.add_calculation(Multiplication.create(values))
         return True
+
     @staticmethod
-    def add_division_calculation(values):
-        """Add a multiplication object to history using factory method create"""
+    def add_division_calculation_to_history(values):
+        """Add a division object to history using factory method create"""
         Calculations.add_calculation(Division.create(values))
-        return True
-
-    @staticmethod
-    def read_history_csv():
-        """Reads the history from CSV files"""
-
-    @staticmethod
-    def write_history_csv():
-        """Reads the history from CSV files"""
-
-    @staticmethod
-    def dataframe(value1, value2, result, operation):
-        """Reads the history from CSV files"""
-        df_dataframe = pd.DataFrame(columns=["value_1","value_2","result","operation"])
-        df_dataframe = df_dataframe.append({"value_1": value1, "value_2": value2, "result": result,"operation": operation,},index_ignore=True)
-        return Write.DataFrameToCSVFile
-

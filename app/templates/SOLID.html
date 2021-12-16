@@ -5,14 +5,9 @@
     {{ super() }}
     <style type="text/css">
         .important { color: #336699; }
-
-
     </style>
 {% endblock %}
-{% block content %}
     <h1 style="margin-top: 20px; margin-left: 20px"><strong>SOLID</strong></h1>
-
-
     .index {
         display: flex;
         justify-content: center;
@@ -24,10 +19,9 @@
         font-size: 50px;
     }
 </style>
-
-<body>
-<div id="Main">
+{% block content %}
     <h1>Understanding SOLID</h1>
+    <p class="important">
     <p> Many object-oriented languages overlap in many things, from usage of certain structures for the codes or using similar
     libraries. In the same sense, most object-oriented programing relied on a set of principles that are important in creating software. One such principle is called SOLID.
     Solid is an acronym and it stands for:
@@ -84,7 +78,5 @@ sense, interfaces that are client specific are better than those with one genera
                 <a href="https://validator.w3.org" style="color: lightcyan">W3C validator</a>
             </div>
         </footer>
-</div>
-</body>
-</body>
-</html>
+
+{% endblock %}
