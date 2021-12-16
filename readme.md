@@ -27,6 +27,18 @@ Calculator (Error):
 Calculator History and Results:
 ![img_4.png](img_4.png)
 
+Website Pages (OOP):
+![img_7.png](img_7.png)
+
+Website Pages (Pylint):
+![img_8.png](img_8.png)
+
+Website Pages (Python):
+![img_9.png](img_9.png)
+
+Website Pages (SOLID):
+![img_10.png](img_10.png)
+
 Unit Test: 
 ![img_5.png](img_5.png)
 
