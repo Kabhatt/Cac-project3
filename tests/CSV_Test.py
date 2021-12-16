@@ -1,73 +1,43 @@
-import pytest
+"""Testing CSV Functions"""
 import pandas
-import pandas as pd
 import os.path
-from calc.calculator import Calculator
-from calc.utilities.csv_file_reader import reader
+from csvmanager.write import Write
 from csvmanager.read import Read
+import pandas as pd
 
+"""Testing CSV Functions"""
+import pandas
+import os.path
+from csvmanager.write import Write
+from csvmanager.read import Read
+import pandas as pd
 
-@pytest.fixture(name="clear_history")
-def fixture_clear_history():
-    """clear history function"""
-    Calculator.clear_history()
-
-
-def csv_addition_test(addition_file_fixture):
-    """Testing Addition.csv file"""
-    file = open("addition.csv")
-    reader_csv = reader.read_csv(file)
-    for row in reader_csv:
-        print(int(row[0]), int(row[1]))
-        assert Calculator.add_numbers(int(row[0]), int(row[1])) == int(row[2])
-
-
-def csv_subtraction_test(addition_file_fixture):
-    """Testing Addition.csv file"""
-    file = open("subtract.csv")
-    reader_csv = reader.read_csv(file)
-    for row in reader_csv:
-        print(int(row[0]), int(row[1]))
-        assert Calculator.subtract_numbers(int(row[0]), int(row[1])) == int(row[2])
-
-
-def csv_multiplication_test(addition_file_fixture):
-    """Testing Addition.csv file"""
-    file = open("Multiplication.csv")
-    reader_csv = reader.read_csv(file)
-    for row in reader_csv:
-        print(int(row[0]), int(row[1]))
-        assert Calculator.multiply_numbers(int(row[0]), int(row[1])) == int(row[2])
-
-
-def csv_division_test(addition_file_fixture):
-    """Testing Addition.csv file"""
-    file = open("Division.csv")
-    reader_csv = reader.read_csv(file)
-    for row in reader_csv:
-        print(int(row[0]), int(row[1]))
-        assert Calculator.divide_numbers(int(row[0]), int(row[1])) == int(row[2])
-
-
-def test_csv_read_file():
-    """Testing files"""
-    filename = "input.csv"
-    path = "tests/test_data"
-    full_path = path + "/" + filename
-    df = Read.DataFrameFromCSVFile()
-    assert type(df) is pandas.DataFrame
-
-
-def test_csv_write_file():
-    """Testing files"""
-    filename = "input.csv"
-    path = "tests/test_data"
-    full_path = path + "/" + filename
-    name_dictionary = {
-        "value_1": [0.994065876],
-        "value_2": [0.477762018],
-        "result": [471827894],
-        "operation": "addition"
+def test_write_csv():
+    """testing that our calculator has a static method for addition"""
+    #Arrange
+    filename = 'csv_output.csv'
+    path = 'tests/test_data'
+    fullPath = path + '/' + filename
+    name_dict = {
+        'value1': ['1.0', '2.0', '3.0', '4.0'],
+        'value2': ['1.0', '2.0', '3.0', '4.0'],
+        'result': [2.0, 4.0, 6.0, 8.0]
     }
-    df = Read.DataFrameFromCSVFile()
+    os.remove(fullPath)
+    df = pd.DataFrame(name_dict)
+    #Act
+
+    Write.DataFrameToCSVFile_Write(fullPath,df)
+    #Assert
+    assert os.path.exists(fullPath)
+
+def test_read_csv():
+    """testing that our calculator has a static method for addition"""
+    #Arrange
+    filename = 'csv_output.csv'
+    path = 'tests/test_data'
+    fullPath = path + '/' + filename
+    #Act
+    df = Read.DataFrameFromCSVFile_Read(fullPath)
+    #Assert
     assert type(df) is pandas.DataFrame

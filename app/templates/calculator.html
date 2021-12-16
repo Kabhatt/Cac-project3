@@ -9,7 +9,25 @@
     </style>
 {% endblock %}
 {% block content %}
-    <h1>HTML Form</h1>
+       <h1 style="text-align: center">Enter values below:</h1>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-one" role="alert">
+                This is a the test alert—check it out!
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    {% if error %}
+        <div class="alert alert- error" role="alert">
+            {{ error }}
+        </div>
+    {% endif %}
+
+    <div style="text-align: center" class="mb-3 row">
 
     <form action="/calculator/" method="POST">
         <label for="value1">Value 1:</label><br>
