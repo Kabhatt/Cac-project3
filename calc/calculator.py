@@ -46,4 +46,8 @@ class Calculator:
 
     @staticmethod
     def get_history_CSV():
-        return
+        return Calculations.write_history_csv()
+
+    @staticmethod
+    def get_read_history_CSV():
+        return Calculations.read_history_csv()
