@@ -20,3 +20,9 @@ setup.py is a config file for pytest
 
 Beautiful Table: 
 ![img_2.png](img_2.png)
+
+Calculator (Error):
+![img_3.png](img_3.png)
+
+Calculator History and Results:
+![img_4.png](img_4.png)
