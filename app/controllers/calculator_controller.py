@@ -34,7 +34,6 @@ class CalculatorController(ControllerBase):
             return render_template('result.html', value1=value1, value2=value2, operation=operation, result=result,
                                    tables=[df.to_html(classes='data')], titles=df.columns.values,
                                    row_data=list(df.values.tolist()), zip=zip)
-            # return render_template('result.html', data=Calculator.getHistory(), value1=value1, value2=value2, operation=operation, result=result)
         return render_template('calculator.html', error=error)
 
     @staticmethod
