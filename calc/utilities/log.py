@@ -1,31 +1,30 @@
+import re
+from flask import render_template, request, flash, redirect, url_for
 import logging
+logger = logging.getLogger(__name__)
+class InputValidator:
+    """Input Validator class"""
+    def __init__(self, input_value1, input_value2):
+        self._input_value1 = input_value1
+        self._input_value2 = input_value2
 
-# create logger
-lgr = logging.getLogger('logger name')
-lgr.setLevel(logging.DEBUG) # log all escalated at and above DEBUG
-# add a file handler
-fh = logging.FileHandler('path_of_your_log.csv')
-fh.setLevel(logging.DEBUG) # ensure all messages are logged to file
+    @property
+    def input_value1(self):
+        return self._input_value1
 
-# create a formatter and set the formatter for the handler.
-frmt = logging.Formatter('%(asctime)s,%(name)s,%(levelname)s,%(message)s')
-fileHandler = logging.FileHandler('testlog.log')
-fh.setFormatter(frmt)
+    @property
+    def input_value2(self):
+        return self._input_value2
 
-# add the Handler to the logger
-lgr.addHandler(fh)
-
-# You can now start issuing logging statements in your code
-lgr.debug('a debug message')
-lgr.info('an info message')
-lgr.warn('A Checkout this warning.')
-lgr.error('An error writen here.')
-lgr.critical('Something very critical happened.')
-
-def log_data(filename, operation, counter):
-    counter = counter+1
-    with open('testlog.log','a') as appendFile:
-        appendFile.write(f'Filename: {filename} -Record Number: {counter} -TestRan: {operation}\n ')
-
-    return appendFile
-lgr.info(f"Test Saved successfully")
+    def validate(self):
+        regex = '^[0-9]+$'
+        value1_check = False
+        value2_check = False
+        if re.search(regex, self.input_value1):
+            value1_check = True
+        if re.search(regex, self.input_value2):
+            value2_check = True
+        if not value1_check or not value2_check:
+            False
+        else:
+            return self._input_value1, self._input_value2

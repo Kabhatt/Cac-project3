@@ -6,6 +6,10 @@ from calc.history.calculations import Calculations
 class Calculator:
     """ This is the Calculator class"""
 
+    @staticmethod
+    def clear_history():
+        Calculator.history.clear()
+        return True
     # the calculator class just calls methods on Calculations class
     @staticmethod
     def get_last_result_value():

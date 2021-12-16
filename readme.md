@@ -27,5 +27,11 @@ Calculator (Error):
 Calculator History and Results:
 ![img_4.png](img_4.png)
 
+Unit Test: 
+![img_5.png](img_5.png)
+
+Log:
+![img_6.png](img_6.png)
+
 Video Recording: 
 https://www.youtube.com/watch?v=sXwxbN9WR6I
